@@ -34,15 +34,6 @@ Apart from that, FrameBank contains many unlabeled examples. 94864 examples with
 
 The features were extracted from [RNC](https://ruscorpora.ru/new/) morphological and semantic annotation and [SyntaxNet](https://ai.googleblog.com/2016/05/announcing-syntaxnet-worlds-most.html) syntactic annotation presented in FrameBank.
 
-Все примеры были автоматически размечены по следующим признакам:
-\begin{itemize}
-\item \textit{синтаксические}: наличие или отсутствие прямого объекта, наличие или отсутствие предлога, управляющего местоимением в дативе;
-
-\item \textit{морфологические}: часть речи, одушевленность, число для объекта в дативе и субъекта, часть речи для предиката и, если это глагол, наклонение и вид глагола;
-
-\item \textit{семантические}: леммы предиката, непрямого объекта и субъекта, а также их семантические характеристики, взятые из Национального корпуса русского языка: для непрямого объекта и субъекта - разряд существительного (предметное, непредметное и имя собственное), таксономический класс существительного, топологический класс, мереологический класс, коннотация и словообразовательная структура (например, диминутивы, аугментивы), для предиката - семантический класс глагола, каузативный / некаузативный глагол, служебный ли глагол, словообразовательная структура.
-\end{itemize}
-
 ## Results of the experiments
 
 In this research both [supervised](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/notebooks/supervised_methods.ipynb) and [semi-supervised](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/notebooks/semi_supervised_methods.ipynb) methods are used. 
