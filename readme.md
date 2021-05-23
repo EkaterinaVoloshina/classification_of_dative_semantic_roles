@@ -17,7 +17,7 @@ The concept of semantic roles is a model that unites similar participants of dif
 
 ### Data
 
-The data was originally taken from [pre-processed FrameBank](http://nlp.isa.ru/framebank_parser/data/annotated_corpus_fixed+syntaxnet.json) and then manually annotated. The manually annotated dataset is available [here](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/data/data_from_framebank.csv). The features were extracted automatically, see the code for [feature extraction](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/notebooks/preprocessing.ipynb). The distribution by class is presented in the table:
+The data was originally taken from [pre-processed FrameBank](http://nlp.isa.ru/framebank_parser/data/annotated_corpus_fixed+syntaxnet.json) and then manually annotated. The manually annotated dataset is available [here](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/data/data_from_framebank.csv). The features were extracted automatically, see the code for [feature extraction](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/notebooks/preprocessing.ipynb).  The labeled dataset is available [here](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/data/annotated_data.csv). The distribution by class is presented in the table:
 
 | Semantic role | The number of examples |
 | ------------- | :--------------------: |
@@ -28,8 +28,9 @@ The data was originally taken from [pre-processed FrameBank](http://nlp.isa.ru/f
 | Recipient     |           400          |
 | Experiencer   |           282          |
 
+Apart from that, FrameBank contains many unlabeled examples. 94864 examples with a Dative marker were taken from FrameBank, the unlabeled dataset can be found [here](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/data/unannotated_data.csv)
 
-Кроме этого, FrameBank содержит много примеров, неразмеченных по семантическим ролям, но имеющим синтаксическую и морфологическую разметку. Из них мы отобрали 94864 примеров с существительным или местоимением в дативе. 
+The features were extracted from [RNC](https://ruscorpora.ru/new/) morphological and semantic annotation and [SyntaxNet](https://ai.googleblog.com/2016/05/announcing-syntaxnet-worlds-most.html) syntactic annotation presented in FrameBank.
 
 Все примеры были автоматически размечены по следующим признакам:
 \begin{itemize}
@@ -40,10 +41,11 @@ The data was originally taken from [pre-processed FrameBank](http://nlp.isa.ru/f
 \item \textit{семантические}: леммы предиката, непрямого объекта и субъекта, а также их семантические характеристики, взятые из Национального корпуса русского языка: для непрямого объекта и субъекта - разряд существительного (предметное, непредметное и имя собственное), таксономический класс существительного, топологический класс, мереологический класс, коннотация и словообразовательная структура (например, диминутивы, аугментивы), для предиката - семантический класс глагола, каузативный / некаузативный глагол, служебный ли глагол, словообразовательная структура.
 \end{itemize}
 
-\section{Эксперименты}
+## Results of the experiments
 
-В исследовании использованы два типа методов: обучение с учителем и обучение с частичным привлечением учителя. Основное отличие между двумя подходами заключается в том, что для обучения с учителем используются только размеченные данные, в то время как методы обучения с частичным привлечением учителя используют небольшую выборку размеченных данных, и в процес
+In this research both [supervised](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/notebooks/supervised_methods.ipynb) and [semi-supervised](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/notebooks/semi_supervised_methods.ipynb) methods are used. 
 
+The results of 
 
 | Semantic role | The number of examples |
 | ------------- | ---------------------- |
@@ -54,17 +56,7 @@ The data was originally taken from [pre-processed FrameBank](http://nlp.isa.ru/f
 | Recipient
 | Experiencer
 
-* **annotated_data.csv**: the dataset with semantic roles labels and features extracted from [RNC](https://ruscorpora.ru/new/) morphological and semantic annotation and [SyntaxNet](https://ai.googleblog.com/2016/05/announcing-syntaxnet-worlds-most.html) syntactic annotation
-* **data_from_framebank.csv**: the dataset with the examples of the Dative case from FrameBank before feature extraction
-* **unannotated_data.csv**: the dataset without semantic roles but with features extracted from RNC morphological and semantic annotation and SyntaxNet syntactic annotation
 
-
-
-
-
-\section{Данные}
-
-се обучения модели размечают неаннотированные данные и в последующие итерации обучаются на них. Результаты моделей обучения с учителем представлены в таблице:
 
 \begin{table}[h]
 \centering
@@ -95,6 +87,14 @@ XGBoost                               & \textit{0.72}      & \textit{0.6}
  
  
  ### Usage 
+
+To run the notebook with the preprocessing code, please download this [file](http://nlp.isa.ru/framebank_parser/data/annotated_corpus_fixed+syntaxnet.json) and clone this repository:
+
+´´´{python}
+git clone https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles
+´´´
+
+The notebooks with experiments can be opened in [Google Colaboratory](https://colab.research.google.com/?utm_source=scs-index). Be aware that you need GPU to run the notebook with supervised methods models.
 
 
 
