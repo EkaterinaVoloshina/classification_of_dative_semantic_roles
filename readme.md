@@ -65,12 +65,12 @@ The results for each semantic role can be found in the following table, the metr
 
 | Semantic Role | XGBoost | Random Forest | LogReg | FNN  | Average  |
 | ------------- | :---: | :---: | :---: | :---: | :---: | 
-| Beneficiary   |          0.6         |        0.68   | 0.63  | 0.65   | 0.64  |               
-| Counteragent  |           0.76        |  0.78   | 0.81  | 0.84  | 0.8   |  
-| Direction   | 0.82   | 0.82    | 0.85 | 0.87  | 0.84  | 
-| External Possessor  | 0.69   | 0.54  | 0.65  | 0.71  | 0.65   | 
-| Recipient   | 0.71   | 0.69  | 0.67  | 0.65   | 0.68   | 
-| Experiencer   | 0.7   |  0.65   | 0.71   | 0.73   | 0.7   | 
+| Beneficiary   |          0.6         |        0.68   | 0.63  | 0.65   | *0.64*  |               
+| Counteragent  |           0.76        |  0.78   | 0.81  | 0.84  | *0.8*   |  
+| Direction   | 0.82   | 0.82    | 0.85 | 0.87  | *0.84*  | 
+| External Possessor  | 0.69   | 0.54  | 0.65  | 0.71  | *0.65*   | 
+| Recipient   | 0.71   | 0.69  | 0.67  | 0.65   | *0.68*   | 
+| Experiencer   | 0.7   |  0.65   | 0.71   | 0.73   | *0.7*   | 
 
 
 
