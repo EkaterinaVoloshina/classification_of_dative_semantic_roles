@@ -20,7 +20,7 @@ The concept of semantic roles is a model that unites similar participants of dif
 The data was originally taken from [pre-processed FrameBank](http://nlp.isa.ru/framebank_parser/data/annotated_corpus_fixed+syntaxnet.json) and then manually annotated. The manually annotated dataset is available [here](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/data/data_from_framebank.csv). The features were extracted automatically, see the code for [feature extraction](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/notebooks/preprocessing.ipynb). The distribution by class is presented in the table:
 
 | Semantic role | The number of examples |
-| ------------- | ---------------------- |
+| ------------- | :--------------------: |
 | Beneficiary   |           225          |                      
 | Counteragent  |           275          |   
 | Direction     |           396          | 
