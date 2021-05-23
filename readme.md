@@ -21,18 +21,13 @@ The data was originally taken from [pre-processed FrameBank](http://nlp.isa.ru/f
 
 | Semantic role | The number of examples |
 | ------------- | ---------------------- |
-| Beneficiary   |           225          |                         \\
-Контрагент                                      & 275                          \\
-Направление                                     & 396                          \\
-Поднятый Посессор                               & 125                          \\
-Реципиент                                       & 400                          \\
-Экспериенцер                                    & 282                          \\ \bottomrule
-\end{tabular}
-\caption{Распределение данных по классам
-}
-%
-}
-\end{table}
+| Beneficiary   |           225          |                      
+| Counteragent  |           275          |   
+| Direction     |           396          | 
+| External Possessor |      125          |
+| Recipient     |           400          |
+| Experiencer   |           282          |
+
 
 Кроме этого, FrameBank содержит много примеров, неразмеченных по семантическим ролям, но имеющим синтаксическую и морфологическую разметку. Из них мы отобрали 94864 примеров с существительным или местоимением в дативе. 
 
@@ -48,6 +43,16 @@ The data was originally taken from [pre-processed FrameBank](http://nlp.isa.ru/f
 \section{Эксперименты}
 
 В исследовании использованы два типа методов: обучение с учителем и обучение с частичным привлечением учителя. Основное отличие между двумя подходами заключается в том, что для обучения с учителем используются только размеченные данные, в то время как методы обучения с частичным привлечением учителя используют небольшую выборку размеченных данных, и в процес
+
+
+| Semantic role | The number of examples |
+| ------------- | ---------------------- |
+| Beneficiary   |           225          |                      
+| Counteragent  |           275          |   
+| Direction
+| External Possessor
+| Recipient
+| Experiencer
 
 * **annotated_data.csv**: the dataset with semantic roles labels and features extracted from [RNC](https://ruscorpora.ru/new/) morphological and semantic annotation and [SyntaxNet](https://ai.googleblog.com/2016/05/announcing-syntaxnet-worlds-most.html) syntactic annotation
 * **data_from_framebank.csv**: the dataset with the examples of the Dative case from FrameBank before feature extraction
