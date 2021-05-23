@@ -45,47 +45,40 @@ The features were extracted from [RNC](https://ruscorpora.ru/new/) morphological
 
 In this research both [supervised](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/notebooks/supervised_methods.ipynb) and [semi-supervised](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/notebooks/semi_supervised_methods.ipynb) methods are used. 
 
-The results of 
+The results of supervised methods models are presented in the table:
 
-| Semantic role | The number of examples |
-| ------------- | ---------------------- |
-| Beneficiary   |           225          |                      
-| Counteragent  |           275          |   
-| Direction
-| External Possessor
-| Recipient
-| Experiencer
+| Model | Weighted F1-Score |
+| ------------- | :----------------------: |
+| [Random Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)  |  0.71 |    
+| [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html)  |  0.72 |      
+| [Logistic regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) | 0.73 |      
+| FNN | 0.75 |  
+
+For training models based on semi-supervised methods the lemmas were excluded from the dataset. [Self-training](https://scikit-learn.org/stable/modules/semi_supervised.html#self-training) algorithm was used with two base estimators: Logistic Regression and XGBoost. The comparison of models based on the supervised methods and trained with lemmas and models based on semi-supervised methods and trained without lemmas is illustrated with the table, the metrics is weigthed F1-score:
+
+| Model | Supervised methods | Semi-supervised methods |
+| ------------- | :----------------------: | :----------------------: |
+| XGboost |  0.72 |      0.6  |  
+| Logistic regression | 0.73 |     0.6   |  
+
+The results for each semantic role can be found in the following table, the metrics is F1-score:
+
+| Semantic Role | XGBoost | Random Forest | LogReg | FNN  | Average  |
+| ------------- | :---: | :---: | :---: | :---: | :---: | 
+| Beneficiary   |          0.6         |        0.68   | 0.63  | 0.65   | 0.64  |               
+| Counteragent  |           0.76        |  0.78   | 0.81  | 0.84  | 0.8   |  
+| Direction   | 0.82   | 0.82    | 0.85 | 0.87  | 0.84  | 
+| External Possessor  | 0.69   | 0.54  | 0.65  | 0.71  | 0.65   | 
+| Recipient   | 0.71   | 0.69  | 0.67  | 0.65   | 0.68   | 
+| Experiencer   | 0.7   |  0.65   | 0.71   | 0.73   | 0.7   | 
 
 
 
-\begin{table}[h]
-\centering
-\begin{tabular}{@{}lc@{}}
-\toprule
-\multicolumn{1}{c}{\textbf{Модель}} & \textbf{F1-Score (weighted)} \\ \midrule
-Random Forest                         & \textit{0.71}  \\   
-Gradient Boosting                     & \textit{0.72}  \\       
-Логистическая регрессия               & \textit{0.73}    \\     
-Полносвязная нейронная сеть           & \textit{\textbf{0.75}}       \\ \bottomrule
-\end{tabular}
-\caption{Сравнение результатов моделей обучения с учителем
-}
-\label{tab:my-table}
-\end{table}
+### Discussion 
 
-В качестве метода обучения с частичным привлечением учителя в этой работе использовался метод Self-training. Для экспериментов с методами обучения с частичным привлечением учителя мы использовали датасет без признаков лемм непрямого объекта, глагола и субъекта, так как размеченных данных гораздо больше, чем неразмеченных, и эти признаки могут только испортить качество моделей: большая часть предикатов из неразмеченных данных не будет содержаться в размеченном датасете. 
+For further discussion see [the handout](https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles/blob/main/Voloshina_handout.pdf).
 
-\begin{table}[h]
-\centering
-\begin{tabular}{@{}lcc@{}}
-\toprule
-\multicolumn{1}{c}{\textbf{Алгоритм}} & \textbf{С леммами} & \textbf{Без лемм} \\
-\midrule
-Логистическая регрессия               & \textit{0.73}      & \textit{0.6}      \\
-XGBoost                               & \textit{0.72}      & \textit{0.6}   
-      \\ \bottomrule
- 
- 
+
  ### Usage 
 
 To run the notebook with the preprocessing code, please download this [file](http://nlp.isa.ru/framebank_parser/data/annotated_corpus_fixed+syntaxnet.json) and clone this repository:
