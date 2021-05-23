@@ -76,9 +76,9 @@ For further discussion see [the handout](https://github.com/EkaterinaVoloshina/c
 
 To run the notebook with the preprocessing code, please download this [file](http://nlp.isa.ru/framebank_parser/data/annotated_corpus_fixed+syntaxnet.json) and clone this repository:
 
-´´´{python}
+```{python}
 git clone https://github.com/EkaterinaVoloshina/classification_of_dative_semantic_roles
-´´´
+```
 
 The notebooks with experiments can be opened in [Google Colaboratory](https://colab.research.google.com/?utm_source=scs-index). Be aware that you need GPU to run the notebook with supervised methods models.
 
